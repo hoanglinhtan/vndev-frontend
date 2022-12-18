@@ -12,6 +12,8 @@ export function App() {
     switch (sub) {
       case 'blockbuster':
         return <BlockbusterApp></BlockbusterApp>;
+      default:
+        return <div>This page is in development</div>;
     }
   };
 
