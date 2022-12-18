@@ -1,14 +1,23 @@
+import useSubdomain from '../hooks/useSubdomain';
 import styled from 'styled-components';
-import NxWelcome from './nx-welcome';
+import BlockbusterApp from './pages/BlockbusterApp';
+import Welcome from './welcome';
 
-const StyledApp = styled.div`
-  // Your style here
-`;
+const StyledApp = styled.div``;
 
 export function App() {
+  const [subdomain] = useSubdomain();
+
+  const renderBySubDomain = (sub: string) => {
+    switch (sub) {
+      case 'blockbuster':
+        return <BlockbusterApp></BlockbusterApp>;
+    }
+  };
+
   return (
     <StyledApp>
-      <NxWelcome title="test" />
+      {subdomain ? renderBySubDomain(subdomain) : <Welcome title="test" />}
     </StyledApp>
   );
 }
