@@ -1,5 +1,5 @@
 export function BlockbusterApp() {
-  return <div>FAFA</div>;
+  return <div>BlockBuster App</div>;
 }
 
 export default BlockbusterApp;
