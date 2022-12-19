@@ -1,35 +1,21 @@
 import styled from 'styled-components';
-import TestCard from './TestCard';
+import CustomAppBar from './CustomAppBar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MainPage from './MainPage';
+import DetailPage from './DetailPage';
 
 const StyledDiv = styled.div``;
-const StyledDivRow = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
 
 export function BlockbusterApp() {
   return (
     <StyledDiv>
-      <StyledDivRow>
-        <TestCard></TestCard>
-        <TestCard></TestCard>
-      </StyledDivRow>
-      <StyledDivRow>
-        <TestCard></TestCard>
-        <TestCard></TestCard>
-      </StyledDivRow>
-      <StyledDivRow>
-        <TestCard></TestCard>
-        <TestCard></TestCard>
-      </StyledDivRow>
-      <StyledDivRow>
-        <TestCard></TestCard>
-        <TestCard></TestCard>
-      </StyledDivRow>
-      <StyledDivRow>
-        <TestCard></TestCard>
-        <TestCard></TestCard>
-      </StyledDivRow>
+      <BrowserRouter>
+        <CustomAppBar />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="detail/*" element={<DetailPage />} />
+        </Routes>
+      </BrowserRouter>
     </StyledDiv>
   );
 }
